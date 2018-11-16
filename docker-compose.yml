@@ -7,7 +7,7 @@ services:
     expose:
     - "9000"
     ports:
-    - "80:80"
+    - "81:80"
     volumes:
     - ./src:/var/www/html
     - ~/.ssh:/home/magento/.ssh
@@ -20,11 +20,9 @@ services:
     - mysql
     container_name: ${PROJECT_NAME}_web
   mysql:
-    image: mysql:5.7
-    volumes:
-    - ./database/data:/var/lib/mysql
+    image: mysql:5.6
     ports:
-    - 3306:3306
+    - 3305:3306
     environment:
     - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
     - MYSQL_DATABASE=${DB_NAME}
